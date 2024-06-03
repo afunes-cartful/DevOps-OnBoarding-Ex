@@ -62,6 +62,6 @@ node {
     }
     // Notification stage
     stage('Notification') {
-        echo "The env_name ${env.env_name} was evaluated and returned status ${env.status}."
+        echo "The env_name ${env.env_name} was evaluated and returned status ${env.HTTP_STATUS}."
     }
 }
