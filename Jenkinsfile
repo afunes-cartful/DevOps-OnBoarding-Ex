@@ -18,8 +18,7 @@ node {
     stage('Get Status') {
         sh  """
             echo ${WORKSPACE}
-            python3 --version
-            which ansible
+            echo ${PATH}
         """
         ansiblePlaybook(
                     playbook: "${env.ANSIBLE_TEMP}",
