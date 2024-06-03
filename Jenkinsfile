@@ -10,24 +10,25 @@ node {
         cleanWs()
     }
     stage("Checkout") {
-    def GIT_CHECKOUT_PATH="Ansible/"
-    def GIT_TARGET_DIRECTORY="${WORKSPACE}/"
-    checkout([
-        $class: "GitSCM",
-        branches: [[name: "*/main"]],
-        extensions: [
-            [$class: "CleanBeforeCheckout"],
-            [
-                $class: "SparseCheckoutPaths",
-                sparseCheckoutPaths:[[$class:'SparseCheckoutPath', path: "${GIT_CHECKOUT_PATH}"]]
-            ],
-            [$class: "RelativeTargetDirectory",
-            relativeTargetDir: "${GIT_TARGET_DIRECTORY}"]
-        ],
-        userRemoteConfigs: [[
-            url: "https://github.com/afunes-cartful/DevOps-OnBoarding-Ex.git",
-        ]]
-    ])
+    checkout scm
+    // def GIT_CHECKOUT_PATH="Ansible/"
+    // def GIT_TARGET_DIRECTORY="${WORKSPACE}/"
+    // checkout([
+    //     $class: "GitSCM",
+    //     branches: [[name: "*/main"]],
+    //     extensions: [
+    //         [$class: "CleanBeforeCheckout"],
+    //         [
+    //             $class: "SparseCheckoutPaths",
+    //             sparseCheckoutPaths:[[$class:'SparseCheckoutPath', path: "${GIT_CHECKOUT_PATH}"]]
+    //         ],
+    //         [$class: "RelativeTargetDirectory",
+    //         relativeTargetDir: "${GIT_TARGET_DIRECTORY}"]
+    //     ],
+    //     userRemoteConfigs: [[
+    //         url: "https://github.com/afunes-cartful/DevOps-OnBoarding-Ex.git",
+    //     ]]
+    // ])
     }
     // Validate env_name in "parameters" stage
     stage('Parameters') {
