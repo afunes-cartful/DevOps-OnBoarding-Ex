@@ -19,6 +19,7 @@ node {
         sh  """
             echo ${WORKSPACE}
             echo ${PATH}
+            which ansible
         """
         ansiblePlaybook(
                     playbook: "${env.ANSIBLE_TEMP}",
