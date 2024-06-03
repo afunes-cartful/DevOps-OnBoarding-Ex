@@ -7,6 +7,7 @@ node {
         env.SRC_PATH = "Template/get_status_template.j2"
         env.DEST_PATH = "../output/get_status.sh"
         env.ANSIBLE_TEMP = "./Ansible/template.yml"
+        cleanWs()
     }
     stage("Checkout") {
     def GIT_CHECKOUT_PATH="Ansible/"
