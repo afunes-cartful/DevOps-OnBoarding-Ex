@@ -44,7 +44,6 @@ node {
             echo ${PATH}
             which ansible
             ansible --version
-            mkdir output
             ls
         """
         sh """
