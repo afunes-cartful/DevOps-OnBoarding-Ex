@@ -22,6 +22,11 @@ node {
             which ansible
             ansible --version
         """
+        sh """
+            ansible-playbook --extra-vars="target=localhost src=${env.SRC_PATH} dest=${env.DEST_PATH} API_HOST=${env.HOST} ENV_NAME=${env.env_name}" ${env.ANSIBLE_TEMP}
+        """
+        // Execute the script
+
         ansiblePlaybook(
                     playbook: "${env.ANSIBLE_TEMP}",
                     extras: "target=localhost src=${env.SRC_PATH} dest=${env.DEST_PATH} API_HOST=${env.HOST} ENV_NAME=${env.env_name}",
