@@ -49,12 +49,6 @@ node {
             ansible-playbook --extra-vars="target=localhost src=${env.SRC_PATH} dest=${env.DEST_PATH} API_HOST=${env.HOST} ENV_NAME=${env.env_name}" ${env.ANSIBLE_TEMP}
         """
         // Execute the script
-
-        ansiblePlaybook(
-                    playbook: "${env.ANSIBLE_TEMP}",
-                    extras: "target=localhost src=${env.SRC_PATH} dest=${env.DEST_PATH} API_HOST=${env.HOST} ENV_NAME=${env.env_name}",
-                    colorized: true
-                )
         def status = sh(script: '. output/get_status.sh', returnStdout: true).trim()
         // Store the status in the environment for later use
         env.HTTP_STATUS = status
