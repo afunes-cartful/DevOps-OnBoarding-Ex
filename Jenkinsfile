@@ -9,7 +9,7 @@ node {
         env.ANSIBLE_TEMP = "./Ansible/template.yml"
     }
     stage("Checkout") {
-    def GIT_CHECKOUT_PATH="/"
+    def GIT_CHECKOUT_PATH="Ansible/"
     def GIT_TARGET_DIRECTORY="${WORKSPACE}/"
     checkout([
         $class: "GitSCM",
@@ -42,6 +42,8 @@ node {
             echo ${PATH}
             which ansible
             ansible --version
+            mkdir output
+            ls
         """
         sh """
             ansible-playbook --extra-vars="target=localhost src=${env.SRC_PATH} dest=${env.DEST_PATH} API_HOST=${env.HOST} ENV_NAME=${env.env_name}" ${env.ANSIBLE_TEMP}
