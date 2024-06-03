@@ -1,0 +1,10 @@
+---
+- hosts: "{{target}}"
+  tasks:
+  - name: "Template file" 
+    template:
+      src: "{{src}}"
+      dest: "{{dest}}"
+    tags: template
+    register: template_output
+  - debug: var=template_output

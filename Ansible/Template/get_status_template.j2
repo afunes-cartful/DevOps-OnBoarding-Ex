@@ -1,0 +1,2 @@
+#!/bin/bash
+curl -LI {{API_HOST}}/{{ENV_NAME}}/status -o /dev/null -w '%{http_code}\n' -s
