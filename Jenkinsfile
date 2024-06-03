@@ -9,7 +9,7 @@ node {
         env.ANSIBLE_TEMP = "./Ansible/template.yml"
     }
     stage("Checkout") {
-    def GIT_CHECKOUT_PATH="Ansible/"
+    def GIT_CHECKOUT_PATH="/"
     def GIT_TARGET_DIRECTORY="${WORKSPACE}/"
     checkout([
         $class: "GitSCM",
