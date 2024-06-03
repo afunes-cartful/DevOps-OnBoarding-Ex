@@ -20,7 +20,7 @@ node {
             echo ${WORKSPACE}
             echo ${PATH}
             which ansible
-            ansible -v
+            ansible --version
         """
         ansiblePlaybook(
                     playbook: "${env.ANSIBLE_TEMP}",
