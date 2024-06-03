@@ -18,6 +18,7 @@ node {
     stage('Get Status') {
         sh  """
             echo ${WORKSPACE}
+            ls
             echo ${PATH}
             which ansible
             ansible --version
